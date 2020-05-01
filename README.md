@@ -1,4 +1,4 @@
-# boredom
+# Carpe Diem
 
 ## Project setup
 ```
