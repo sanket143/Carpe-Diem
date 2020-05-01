@@ -76,11 +76,9 @@ export default {
   methods: {
     getActivity(type){
       this.loading = true
-      axios({
-        method: "get",
-        url: "https://www.boredapi.com/api/activity",
-        data: {
-          type
+      axios.get("https://www.boredapi.com/api/activity", {
+        params: {
+          type: type
         }
       }).then(response => {
         this.activity.text = response.data.activity
