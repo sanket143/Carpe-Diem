@@ -3,19 +3,65 @@
     <h1>Find something to do.</h1>
 
     <div class="activity-buttons">
-      <span class="activity-btn">[ Education ]</span>
-      <span class="activity-btn">[ Recreational ]</span>
-      <span class="activity-btn">[ Social ]</span>
-      <span class="activity-btn">[ DIY ]</span>
-      <span class="activity-btn">[ Charity ]</span>
-      <span class="activity-btn">[ Cooking ]</span>
-      <span class="activity-btn">[ Relaxation ]</span>
-      <span class="activity-btn">[ Music ]</span>
-      <span class="activity-btn">[ Busywork ]</span>
+      <span
+        class="activity-btn"
+        @click="getActivity('education')">
+          [ Education ]
+      </span>
+      <span
+        class="activity-btn"
+        @click="getActivity('recreational')">
+          [ Recreational ]
+      </span>
+      <span
+        class="activity-btn"
+        @click="getActivity('social')">
+          [ Social ]
+      </span>
+      <span
+        class="activity-btn"
+        @click="getActivity('diy')">
+          [ DIY ]
+      </span>
+      <span
+        class="activity-btn"
+        @click="getActivity('charity')">
+          [ Charity ]
+      </span>
+      <span
+        class="activity-btn"
+        @click="getActivity('cooking')">
+          [ Cooking ]
+      </span>
+      <span
+        class="activity-btn"
+        @click="getActivity('relaxation')">
+          [ Relaxation ]
+      </span>
+      <span
+        class="activity-btn"
+        @click="getActivity('music')">
+          [ Music ]
+      </span>
+      <span
+        class="activity-btn"
+        @click="getActivity('busywork')">
+          [ Busywork ]
+      </span>
     </div>
   </div>
 
 </template>
+
+<script>
+export default {
+  methods: {
+    getActivity(type){
+      console.log(type);
+    }
+  }
+}
+</script>
 
 <style>
 .activity-buttons {
@@ -31,7 +77,7 @@
 
 .activity-btn:hover {
   color: crimson;
-  transition: 0.2s;
+  transition: 0.1s;
 }
 
 </style>
