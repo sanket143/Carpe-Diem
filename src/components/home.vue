@@ -49,15 +49,44 @@
           [ Busywork ]
       </span>
     </div>
+
+    <div class="content">
+      <h3>{{ activity.text }}</h3>
+      <h5><a :href="activity.url">{{ activity.url }}</a></h5>
+
+      <h6 v-if="loading">Fetching activity...</h6>
+    </div>
   </div>
 
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+  data(){
+    return {
+      loading: false,
+      activity: {
+        text: "",
+        url: ""
+      }
+    }
+  },
   methods: {
     getActivity(type){
-      console.log(type);
+      this.loading = true
+      axios({
+        method: "get",
+        url: "https://www.boredapi.com/api/activity",
+        data: {
+          type
+        }
+      }).then(response => {
+        this.activity.text = response.data.activity
+        this.activity.url = response.data.link
+        this.loading = false
+      })
     }
   }
 }
@@ -78,6 +107,10 @@ export default {
 .activity-btn:hover {
   color: crimson;
   transition: 0.1s;
+}
+
+.content {
+  padding-top: 20px;
 }
 
 </style>
